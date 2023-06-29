@@ -112,6 +112,13 @@
                             <input id="proof_of_payment" type="file"  required="required" onchange="uploadFile()" name="proof_of_payment" placeholder="SEND PROOF OF PAYMENT" 
                              class="form-control bg-white font-weight-bold border-md input-sm">
                         </div>
+
+                         <!--progress bar-->
+                    <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+                    <h3 id="status"></h3>
+                    <p id="loaded_n_total"></p>
+                    <!--progress bar ended-->
+                    
                 
                         <!-- Submit Button -->
                         <div class="form-group col-lg-12 mx-auto mb-0">
@@ -121,11 +128,14 @@
                         </div>
                 
                     </div>
+
+                   
                 </form>
 
             </div>
         </div>
     </div>
+    <script src="deposit.js">//link to deposit.js</script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         crossorigin="anonymous"></script>
 
