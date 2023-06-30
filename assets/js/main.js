@@ -621,3 +621,60 @@
   }
 
 })();
+
+
+/*code for picking the user profile
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the Firestore database
+var db = firebase.firestore();
+
+// Function to retrieve and display user information
+function fetchUserProfile(userId) {
+  // Get the user document from Firestore
+  db.collection("users").doc(userId).get().then(function(doc) {
+    if (doc.exists) {
+      // Populate the profile page with user information
+      var userData = doc.data();
+      document.getElementById("name").textContent = userData.name;
+      document.getElementById("email").textContent = userData.email;
+      document.getElementById("phone").textContent = userData.phone;
+    } else {
+      console.log("No such user document!");
+    }
+  }).catch(function(error) {
+    console.log("Error getting user document:", error);
+  });
+}
+
+// Handle user authentication state changes
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is logged in
+    var userId = user.uid;
+    fetchUserProfile(userId);
+  } else {
+    // User is logged out
+    // You can redirect them to the login page or handle this case as needed
+  }
+});*/
+
+//code for signing out
+// Sign out the current user
+function signOut(event) {
+  event.preventDefault(); // Prevent the default behavior of the anchor tag
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    // You can redirect the user to the login page or perform any other actions as needed.
+    window.location.href = "sitelogin.html"; // Redirect to the login page
+  }).catch(function(error) {
+    // An error happened.
+    console.log("Error signing out:", error);
+  });
+}
+
+// Add a click event listener to the sign-out link
+document.getElementById("signout-btn").addEventListener("click", signOut);
+
+
