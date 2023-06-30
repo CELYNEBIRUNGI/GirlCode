@@ -83,14 +83,14 @@
 
             <!-- Payment Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <form action="mailto:irenenakabugo0@gmail.com" name="New deposit">
+                <form method="POST" action="mailto:irenenakabugo0@gmail.com" name="New deposit">
                     <div class="row">
                 
                         <!-- Amount -->
                         <div class="col-lg-12 mb-4">
                             <label for="amount">AMOUNT</label>
                             <br>
-                            <input id="amount" type="text" name="amount" placeholder="AMOUNT"
+                            <input id="amount" type="text"  required="required" name="amount" placeholder="AMOUNT"
                                 class="form-control bg-white font-weight-bold border-md input-sm">
                         </div>
                 
@@ -104,13 +104,23 @@
                                 <option value="">MOMO PAY MERCHANT CODE(123456)</option>
                             </select>
                         </div>
+
+                         
                 
                         <!-- Proof of Payment -->
                         <div class="col-lg-12 mb-4">
                             <label for="proof_of_payment">ADD PROOF OF PAYMENT</label>
                             <br>
-                            <input id="proof_of_payment" type="file" name="proof_of_payment" placeholder="SEND PROOF OF PAYMENT" class="form-control bg-white font-weight-bold border-md input-sm">
+                            <input id="proof_of_payment" type="file"  required="required" onchange="uploadFile()" name="proof_of_payment" placeholder="SEND PROOF OF PAYMENT" 
+                             class="form-control bg-white font-weight-bold border-md input-sm">
                         </div>
+
+                         <!--progress bar-->
+                    <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+                    <h3 id="status"></h3>
+                    <p id="loaded_n_total"></p>
+                    <!--progress bar ended-->
+                    
                 
                         <!-- Submit Button -->
                         <div class="form-group col-lg-12 mx-auto mb-0">
@@ -120,11 +130,14 @@
                         </div>
                 
                     </div>
+
+                   
                 </form>
 
             </div>
         </div>
     </div>
+    <script src="deposit.js">//link to deposit.js</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         crossorigin="anonymous"></script>
 
