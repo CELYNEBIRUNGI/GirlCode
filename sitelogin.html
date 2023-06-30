@@ -76,28 +76,28 @@
 
         <!-- Registration Form -->
         <div class="col-md-7 col-lg-6 ml-auto">
-            <form action="#">
+            <!-- <form action="#"> -->
                 <div class="row">
 
                     <!-- First Name -->
-                    <div class="input-group col-lg-6 mb-4">
+                    <!-- <div class="input-group col-lg-6 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
                         <input id="firstName" type="text" name="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md input-sm">
-                    </div>
+                    </div> -->
 
                     <!-- Last Name -->
-                    <div class="input-group col-lg-6 mb-4">
+                    <!-- <div class="input-group col-lg-6 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
                         <input id="lastName" type="text" name="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md input-sm">
-                    </div>
+                    </div> -->
 
                     <!-- Email Address -->
                     <div class="input-group col-lg-12 mb-4">
@@ -121,8 +121,8 @@
 
                    <!-- Submit Button -->
                     <div class="form-group col-lg-12 mx-auto mb-0">
-                        <a href="#" class="btn btn-primary btn-block py-2" id="login" style="background-color: #2b2b2b;>
-                            <span class="font-weight-bold">Log in to your account</span>
+                        <a href="#" class="btn btn-primary btn-block py-2" id="logIn" style="background-color: #2b2b2b;">
+                            <span class="font-weight-bold">Log Into Your Account</span>
                         </a>
                     </div><br> <br>
 
@@ -139,92 +139,13 @@
                     </div>
 
                 </div>
-            </form>
+            <!-- </form> -->
         </div>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
-    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
-    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyD5S-UYsUxh4-Qz3vcchQ1jpqM96GSeDV8",
-      authDomain: "pennywise-2023.firebaseapp.com",
-      databaseURL: "https://pennywise-2023-default-rtdb.firebaseio.com",
-      projectId: "pennywise-2023",
-      storageBucket: "pennywise-2023.appspot.com",
-      messagingSenderId: "286276321895",
-      appId: "1:286276321895:web:1af99f1ee96a429efacac2",
-      measurementId: "G-QFMHB13DPC"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const database = getDatabase(app);
-    const auth = getAuth();
-
-
-
-    login.addEventListener('click',(e)=>
-    {
-        var firstname = document.getElementById('firstName').value;
-        var lastname = document.getElementById('lastName').value;
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        
-        signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-
-
-const dt = new Date();
-update(ref(database, 'users/' + user.uid),{
-        last_login: dt,
-});
-alert('User logged in!')
-// Redirect to dashboard.html
-window.location.href = 'dashboard.html';
-
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-
-    alert('errorMessage');
-  });
-});
-const user = auth.currentUser;
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
-
-logout.addEventListener('click',(e)=>{
-
-})
-
-
-  </script>
+<script type="module" src="./firebase backend/auth.js"></script>
   
 </body>
 <script>
