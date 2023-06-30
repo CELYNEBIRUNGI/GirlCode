@@ -77,3 +77,19 @@ if (login) {
             });
     });
 }
+
+const logout = document.getElementById('logOut');
+if (logout) {
+    logout.addEventListener('click', (e) => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            alert('Logged Out Successfully');
+            window.location = "/sitelogin.html";
+        }).catch((error) => {
+            // An error happened.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+    });
+}
