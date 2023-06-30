@@ -204,7 +204,34 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="info-box">
-                  <i class="bx bx-map"></i>
+                  <i> <style>
+    #map {
+      height: 400px;
+      width: 100%; 
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
+      var tubayo = {lat: 0.35319, lng: 32.61486}; // Replace with actual coordinates for Tubayo
+      
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: tubayo
+      });
+      
+      var marker = new google.maps.Marker({
+        position: tubayo,
+        map: map,
+        title: 'Tubayo Location'
+      });
+    }
+  </script>
+
+
+  <div id="map"></div>
+
+</html></i>
                   <h3>Our Address</h3>
                   <p>Ntinda Complex Apartments, Kampala</p>
                 </div>
