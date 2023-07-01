@@ -91,13 +91,12 @@ onAuthStateChanged(auth, async (user) => {
         '/charts-chartjs.html',
         '/pages-contact.html',
         '/pages-faq.html',
-        '/'
     ];
     const currentUrl = window.location.pathname;
 
     if (!allowedUrls.includes(currentUrl)) {
         // Redirect to authed page if not already there
-        window.location = '/dashboard.html';
+        // window.location = '/dashboard.html';
     } else {
       // Update profile information
         const profileNames = document.querySelectorAll('.pname1, .pname2, .pname3, .pname4');
@@ -174,20 +173,20 @@ onAuthStateChanged(auth, async (user) => {
             // }
         
     }
-    } else {
-        // User is signed out
-        const allowedUrls = [
-            '/index.html',
-            '/siteregister.html',
-            '/sitelogin.html',
-        ];
-        const currentUrl = window.location.pathname;
+  } else {
+      // User is signed out
+      const allowedUrls = [
+          '/index.html',
+          '/siteregister.html',
+          '/sitelogin.html',
+      ];
+      const currentUrl = window.location.pathname;
 
-        if (!allowedUrls.includes(currentUrl)) {
-            // Redirect to login page if not already there
-            window.location = '/index.html';
-        }
-    }
+      if (!allowedUrls.includes(currentUrl)) {
+          // Redirect to login page if not already there
+          // window.location = '/index.html';
+      }
+  }
 });
 
 const logout = document.getElementById('logOut');
