@@ -1,0 +1,24 @@
+/* your styles go here */
+.page{
+    background-color:white;
+    text-decoration-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.list-unstyled{
+    color: black;
+    
+}
+
+.icon{
+    background-color: #003594;
+}
+.sidebar-link:hover{
+    background-color: #003594;
+}
+.svg-icon svg-icon-sm svg-icon-heavy{
+    background-color: #003594;
+}
+.progress-bar {
+    background-color: #003594;
+}
